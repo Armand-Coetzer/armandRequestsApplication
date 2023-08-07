@@ -1,0 +1,45 @@
+{
+  "name": "myApplication",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/connectivity": "^3.4.0",
+    "@sap-cloud-sdk/http-client": "^3.4.0",
+    "@sap-cloud-sdk/resilience": "^3.4.0",
+    "@sap-cloud-sdk/util": "^3.4.0",
+    "@sap/cds": "^7",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-specification": "^1.108.11"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-requestslist": "cds watch --open requestslist/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-createrequest": "cds watch --open createrequest/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-updaterequest": "cds watch --open updaterequest/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "requires": {
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa"
+        }
+      },
+      "db": {
+        "kind": "sql",
+        "credentials": {
+          "url": "db/myApplication-db"
+        },
+        "schema_evolution": "auto"
+      }
+    }
+  },
+  "sapux": [
+    "app/requests"
+  ]
+}

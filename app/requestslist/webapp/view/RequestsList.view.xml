@@ -1,0 +1,72 @@
+<mvc:View 
+    controllerName="requestslist.controller.RequestsList"
+    displayBlock="true" 
+    xmlns:smarttable="sap.ui.comp.smarttable" 
+    xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <!--For some reason this code would not display my search bars, filters would be unclickable and throws exception  -->
+            <!-- <smartfilterbar:SmartFilterBar id="smartFilter" entitySet="{Requests}" search="onSearch" enableBasicSearch="true">
+                <smartfilterbar:controlConfiguration>
+                    <smartfilterbar:ControlConfiguration id="shortDescription" visibleInAdvancedArea="true" label="Short Description" key="{shortDescription}" />
+                    <smartfilterbar:ControlConfiguration id="description" visibleInAdvancedArea="true" label="Description" key="{description}"/>
+                    <smartfilterbar:ControlConfiguration id="priority" visibleInAdvancedArea="true" label="Priority" key="{priority}"/>
+                </smartfilterbar:controlConfiguration>
+            </smartfilterbar:SmartFilterBar>
+            <smarttable:SmartTable id="smartTable" smartFilterId="smartFilter" entitySet="{Requests}" enableAutoBinding="true" tableType="Table">
+                <Table id="idRespinsiveTable" selectionChange="handleSelectionChange" mode="SingleSelectMaster"/>
+            </smarttable:SmartTable> -->
+            <VBox id="idVBox">
+                <Button id="createButton" text="Create Request" press="onCreatePress"/>
+                <Button id="updateButton" text="Update Request" press="onUpdatePress"/>
+            </VBox>
+            <HBox id="idHBox">
+                <Table id="RequestsTable" items="{/Requests}">
+                    <columns>
+                        <Column id="colId">
+                            <Text id="colIdText" text="Request ID"/>
+                        </Column>
+                        <Column id="colCreatedAt">
+                            <Text id="colCreatedAtText" text="Created At"/>
+                        </Column>
+                        <Column id="colCreatedBy">
+                            <Text id="colCreatedByText" text="Created By"/>
+                        </Column>
+                        <Column id="colModifiedAt">
+                            <Text id="colModifiedAtText" text="Modified At"/>
+                        </Column>
+                        <Column id="colModifiedBy">
+                            <Text id="colModifiedByText" text="Modified By"/>
+                        </Column>
+                        <Column id="colShortDescription">
+                            <Text id="colShortDescriptionText" text="Short Description"/>
+                        </Column>
+                        <Column id="colDescription">
+                            <Text id="colDescriptionText" text="Description"/>
+                        </Column>
+                        <Column id="colPriority">
+                            <Text id="colPriorityText" text="Priority"/>
+                        </Column>
+                    </columns>
+                    <items> 
+                        <ColumnListItem id="ColumnListItemId" press="onRowSelect">
+                            <cells>
+                                <Text id="itemIdText" text="{ID}"/>
+                                <Text id="itemCreatedAtText" text="{createdAt}"/>
+                                <Text id="itemCreatedByText" text="{createdBy}"/>
+                                <Text id="itemModifiedAtText" text="{modifiedAt}"/>
+                                <Text id="itemModifiedByText" text="{modifiedBy}"/>
+                                <Text id="itemShortDescriptionText" text="{shortDescription}"/>
+                                <Text id="itemDescriptionText" text="{description}"/>
+                                <Text id="itemPriorityText" text="{priority}"/>
+                            </cells>
+                        </ColumnListItem>                
+                    </items>
+                </Table>
+            </HBox>
+        </content>
+    </Page>
+</mvc:View>

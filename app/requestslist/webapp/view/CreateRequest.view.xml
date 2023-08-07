@@ -1,0 +1,37 @@
+<mvc:View 
+    controllerName="requestslist.controller.CreateRequest"
+    displayBlock="true" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox id="idVBox1" alignItems="Center" justifyContent="Center" height="100%">
+                <VBox id="idVBox2" width="50%" class="sapUiMediumMargin">
+                    <HBox id="idHeadingBox" justifyContent="Center" alignItems="Center">
+                        <Label id="idHeader" text="Create Request" class="sapUiLargeMarginTopBottom"/>
+                    </HBox>
+                    <VBox id="shortDescriptionFieldVBox">
+                        <Label id="shortDescriptionLabel" text="Short Description"/>
+                        <Input id="newShortDescription" width="100%"/>
+                    </VBox>
+                    <VBox id="descriptionFieldVBox">
+                        <Label id="descriptionLabel" text="Description"/>
+                        <TextArea id="newDescription" width="100%" rows="5" maxLength="5000"/>
+                    </VBox>
+                    <VBox id="priorityFieldVBox">
+                        <Label id="priorityLabel" text="Priority"/>
+                        <ComboBox id="newRequestPriority" width="100%"
+                            items="{oDataModel>/Priorities}">
+                            <core:Item id="idComboBox" key="{oDataModel>priority}" text="{oDataModel>description}" />
+                        </ComboBox>
+                    </VBox>
+                </VBox>
+                <HBox id="buttonBox" justifyContent="End">
+                    <Button id="createButton" text="Create" press="onCreatePress" class="sapUiSmallMarginEnd"/>
+                    <Button id="backButton" text="Back" press="onBackPress" class="sapUiSmallMarginEnd"/>
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

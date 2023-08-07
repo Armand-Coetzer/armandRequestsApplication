@@ -1,0 +1,1 @@
+using myApplication.service.myService as service from '../../srv/service';

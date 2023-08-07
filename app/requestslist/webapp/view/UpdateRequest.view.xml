@@ -1,0 +1,57 @@
+<mvc:View 
+    controllerName="requestslist.controller.UpdateRequest"
+    displayBlock="true" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox id="idVBox1" alignItems="Center" justifyContent="Center" height="100%">
+                <VBox id="idVBox2" width="50%" class="sapUiMediumMargin">
+                    <HBox id="idHeadingBox" justifyContent="Center" alignItems="Center">
+                        <Label id="idHeader" text="Update Request" class="sapUiLargeMarginTopBottom"/>
+                    </HBox>
+                    <VBox id="requestIdFieldVBox">
+                        <Label id="requestIdLabel" text="Request ID"/>
+                        <Input value="{viewModel>/selectedData/ID}" id="updateRequestId" width="100%" editable="false"/>
+                    </VBox>
+                    <VBox id="createdAtFieldVBox">
+                        <Label id="createdAtLabel" text="Creation Date"/>
+                        <Input value="{viewModel>/selectedData/createdAt}" id="updateCreationDate" width="100%" editable="false"/>
+                    </VBox>
+                    <VBox id="createdByFieldVBox">
+                        <Label id="createdByLabel" text="Created By"/>
+                        <Input value="{viewModel>/selectedData/createdBy}" id="updateCreatedBy" width="100%" editable="false"/>
+                    </VBox>
+                    <VBox id="modifiedAtFieldVBox">
+                        <Label id="modifiedAtLabel" text="Last Modified Date"/>
+                        <Input value="{viewModel>/selectedData/modifiedAt}" id="updateLastModifiedDate" width="100%" editable="false"/>
+                    </VBox>
+                    <VBox id="modifiedByFieldVBox">
+                        <Label id="modifiedByLabel" text="Last Modified By"/>
+                        <Input value="{viewModel>/selectedData/modifiedBy}" id="updateLastModifiedBy" width="100%" editable="false"/>
+                    </VBox>
+                    <VBox id="nameFieldVBox">
+                        <Label id="shortDescription" text="Request Short Description"/>
+                        <Input value="{viewModel>/selectedData/shortDescription}" id="updateRequestName" width="100%"/>
+                    </VBox>
+                    <VBox id="descriptionFieldVBox">
+                        <Label id="descriptionLabel" text="Request Description"/>
+                        <TextArea value="{viewModel>/selectedData/description}" id="updateRequestDescription" width="100%" rows="5" maxLength="5000"/>
+                    </VBox>
+                    <VBox id="priorityFieldVBox">
+                        <Label id="priorityLabel" text="Request Priority"/>
+                        <ComboBox id="updateRequestPriority" width="100%"
+                            items="{oDataModel>/Priorities}">
+                            <core:Item id="idComboBox" key="{oDataModel>priority}" text="{oDataModel>description}" />
+                        </ComboBox>
+                    </VBox>
+                </VBox>
+                <HBox id="buttonBox" justifyContent="End">
+                    <Button id="idUpdateButton" text="Update" press="onUpdatePress" class="sapUiSmallMarginEnd"/>
+                    <Button id="idBackPress" text="Back" press="onBackPress"/>
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
